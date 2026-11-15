@@ -4,6 +4,8 @@
 
 COSMIC PULSE is a research prototype for exploring genuine NASA/IPAC SPHEREx DR1 observations. It includes an IRSA-connected Explorer, FITS image inspection, full-resolution source detection and aperture photometry, and a Time Machine view that honestly reports when a compatible second epoch is unavailable.
 
+**Live demo:** [cosmic-pulse-nu.vercel.app](https://cosmic-pulse-nu.vercel.app)
+
 The current analysis uses observation `2025W17_4B_0001_1`. Measurements are not confirmed discoveries or transients. The IMAGE unit is `MJy / sr`; photometric uncertainty is not reported because VARIANCE semantics have not been verified. Product astrometry has not been independently calibrated. Evidence Capsules are static example records, not saved analysis results.
 
 ## Project layout
