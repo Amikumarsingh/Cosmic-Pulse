@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: cosmic-pulse-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 1
+    healthCheckPath: /live
+    autoDeploy: true
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: PYTHON_VERSION
+        value: 3.13.7
+      - key: CORS_ORIGINS
+        value: http://localhost:5173,http://localhost:4173
+      - key: FITS_CACHE_DIR
+        value: /tmp

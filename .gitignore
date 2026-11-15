@@ -1,0 +1,54 @@
+# Dependencies
+node_modules/
+dist/
+.venv*/
+venv*/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Environment
+.env
+.env.*
+!.env.example
+**/.env.*
+!**/.env.example
+
+# Build outputs
+frontend/dist/
+frontend/.vite/
+.vercel/
+
+# Python
+*.egg-info/
+.pytest_cache/
+
+# Credentials and local data
+*.pem
+*.key
+*.p12
+*.pfx
+*.sqlite
+*.sqlite3
+*.db
+*.npy
+*.npz
+*.h5
+*.hdf5
+credentials.json
+secrets.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# FITS data (large files — do not commit)
+*.fits
+*.fit
+*.fz
+*.fits.gz
