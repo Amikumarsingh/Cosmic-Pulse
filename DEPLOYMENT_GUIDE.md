@@ -2,7 +2,9 @@
 
 ## Current release status
 
-The GitHub repository `https://github.com/Amikumarsingh/Cosmic-Pulse` is connected to Vercel and Render on `main`. Vercel has a ready production deployment at `https://cosmic-pulse-nu.vercel.app`; direct route refresh works. The Render API is live at `https://cosmic-pulse-api.onrender.com`. Production `VITE_API_URL` has been set in Vercel, and `render.yaml` allows the deployed frontend origin. A new deployment is required after environment/configuration changes; verify both providers have completed their latest deployments before relying on the browser-to-API connection.
+The GitHub repository `https://github.com/Amikumarsingh/Cosmic-Pulse` is connected to Vercel and Render on `main`. The deployment configuration at commit `4a70ae3` was verified live on both providers. The public URLs are `https://cosmic-pulse-nu.vercel.app` and `https://cosmic-pulse-api.onrender.com`.
+
+Production checks passed: the frontend homepage and `/explorer`, `/time-machine`, `/lab`, `/capsules`, and `/about` direct routes return the SPA; a browser-origin request to the API returns the genuine observation `2025W17_4B_0001_1`; FITS inspection reports seven HDUs and IMAGE `BUNIT` `MJy / sr`; the preview returns PNG; source analysis reports 4,364 qualifying detections with 200 returned and `sources_capped=true`; Time Machine reports one epoch and `comparison_possible=false`. Render CORS allows the deployed frontend origin. IRSA TAP was unavailable (`HTTP_502`), so the observation search used the product metadata fallback. The Render Free dashboard warns that an idle service may spin down and delay requests by 50 seconds or more; a cold-start duration was not measured during this verification. A new deployment is required after environment/configuration changes.
 
 ## Architecture
 
