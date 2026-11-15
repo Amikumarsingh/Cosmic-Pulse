@@ -2,7 +2,7 @@
 
 ## Current release status
 
-The project is prepared for a Vercel frontend and Render FastAPI backend, but it is **not deployed**. The intended GitHub repository is `https://github.com/Amikumarsingh/Cosmic-Pulse`; the local `main` branch is being published. No hosting services, public URLs, or automatic deployments are configured by this initial GitHub release.
+The GitHub repository `https://github.com/Amikumarsingh/Cosmic-Pulse` is connected to Vercel and Render on `main`. Vercel has a ready production deployment at `https://cosmic-pulse-nu.vercel.app`; direct route refresh works. The Render API is live at `https://cosmic-pulse-api.onrender.com`. Production `VITE_API_URL` has been set in Vercel, and `render.yaml` allows the deployed frontend origin. A new deployment is required after environment/configuration changes; verify both providers have completed their latest deployments before relying on the browser-to-API connection.
 
 ## Architecture
 
@@ -45,14 +45,13 @@ npm run dev
 
 Open `http://localhost:5173`; API docs are at `http://localhost:8000/docs`. Backend environment values are loaded from `backend/.env`; Vite loads `frontend/.env.local`.
 
-## First deployment (requires account/repository access)
+## Provider configuration
 
-1. Import `Amikumarsingh/Cosmic-Pulse` into Vercel. Set **Root Directory** to `frontend`, keep build command `npm run build` and output directory `dist`, and use `main` as the production branch.
-2. Set up the backend in Render by creating a Blueprint from the same repository and selecting the root `render.yaml`. The service root is `backend`, the start command binds to Render's `$PORT`, and the liveness check is `/live`. The Blueprint requests Python 3.13.7 and enables automatic deploys from the connected branch.
-3. Set Vercel's `VITE_API_URL` build variable to the actual Render API HTTPS URL for Production and Preview. Vite embeds this value at build time.
-4. After Vercel assigns the actual frontend URL, set Render's `CORS_ORIGINS` to that exact HTTPS origin (plus local origins only if desired). Do not leave a placeholder origin in production; redeploy the backend after changing it.
-5. Verify the production branch is `main` and automatic deployment from the GitHub branch is enabled in both providers.
-6. Test the public endpoints and user flows in the production-test checklist before sharing the URL. This guide is not evidence that a deployment or public URL exists.
+- **Vercel:** repository `Amikumarsingh/Cosmic-Pulse`, root directory `frontend`, production branch `main`, output directory `dist`, with automatic production deployments from `main`.
+- **Render:** Blueprint from the same repository using the root `render.yaml`; service root is `backend`, liveness check is `/live`, Python is pinned to 3.13.7, and automatic deployments from `main` are enabled.
+- **Vercel production environment:** `VITE_API_URL=https://cosmic-pulse-api.onrender.com`. Vite embeds this value at build time; redeploy after changing it.
+- **Render CORS:** `CORS_ORIGINS` in `render.yaml` includes `https://cosmic-pulse-nu.vercel.app` and local development origins. Keep the production frontend origin synchronized with the deployed Vercel domain and redeploy after changes.
+- Confirm each provider's latest deployment is healthy, then test the production checklist before sharing the application.
 
 ## Environment variables
 
