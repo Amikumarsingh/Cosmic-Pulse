@@ -7,9 +7,9 @@ interface Props {
 }
 
 export default function CoordinateSearch({ onSearch, loading }: Props) {
-  const [ra, setRa] = useState('')
-  const [dec, setDec] = useState('')
-  const [radius, setRadius] = useState('0.5')
+  const [ra, setRa] = useState('160.6152')
+  const [dec, setDec] = useState('30.6691')
+  const [radius, setRadius] = useState('0.11')
   const [error, setError] = useState('')
 
   function handleSubmit(e: React.FormEvent) {
